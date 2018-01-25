@@ -1,0 +1,26 @@
+{
+  "dataBinding": {
+    "/webapp/view/Dialog1.view.xml": {
+      "entitySet": ""
+    },
+    "/webapp/view/Popover1.view.xml": {
+      "entitySet": ""
+    },
+    "/webapp/view/MenuBar.view.xml": {
+      "entitySet": ""
+    },
+    "/webapp/view/HomePage.view.xml": {
+      "entitySet": ""
+    },
+    "/webapp/view/Certificado.view.xml": {
+      "entitySet": ""
+    }
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
+  }
+}

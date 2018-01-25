@@ -1,0 +1,27 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.bancasegurosEmision.controller.HomePage" xmlns="sap.m">
+	<Page showHeader="true" title="BANCASEGUROS - TecniSeguros" showFooter="true" showNavButton="false">
+		<content>
+			<HBox alignItems="Center" direction="Row" fitContainer="false" width="960.0000610351562px" height="595.9954223632812px"
+				justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+				<items>
+					<Image src="/webapp/resources/sap-cloud-platform.jpg" height="100px" width="200px" densityAware="false"/>
+					<Text text="" width="100px" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+					<Image src="/webapp/resources/Ingesis_Logo.png" height="100px" width="200px" densityAware="false"/>
+				</items>
+				<layoutData/>
+			</HBox>
+		</content>
+		<footer>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<Text text="INXU-BANCASEGUROS Copyright 2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
+</mvc:View>

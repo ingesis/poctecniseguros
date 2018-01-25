@@ -1,0 +1,136 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "com.sap.build.standard.bancasegurosEmision",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"ach": "ach",
+		"resources": "resources.json",
+		"dataSources": {},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.32.5"
+		}
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "com.sap.build.standard.bancasegurosEmision.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.32.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.build.standard.bancasegurosEmision.view",
+				"controlId": "idAppControl",
+				"clearTarget": false,
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": [
+						"HomePage",
+						"MenuBar"
+					]
+				}
+			},
+			"targets": {
+				"MenuBar": {
+					"controlAggregation": "masterPages",
+					"viewName": "MenuBar",
+					"viewId": "MenuBar",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"HomePage": {
+					"controlAggregation": "detailPages",
+					"viewName": "HomePage",
+					"viewId": "HomePage",
+					"viewLevel": 2,
+					"transition": "slide"
+				},
+				"Certificado": {
+					"controlAggregation": "detailPages",
+					"viewName": "Certificado",
+					"viewId": "Certificado",
+					"viewLevel": 3,
+					"transition": "slide"
+				}
+			},
+			"routes": [{
+				"pattern": "MenuBar",
+				"name": "MenuBar",
+				"target": [
+					"Certificado",
+					"MenuBar"
+				]
+			}, {
+				"pattern": "MenuBar/HomePage",
+				"name": "HomePage",
+				"target": [
+					"MenuBar",
+					"HomePage"
+				]
+			}, {
+				"pattern": "MenuBar/Certificado",
+				"name": "Certificado",
+				"target": [
+					"MenuBar",
+					"Certificado"
+				]
+			}, {
+				"pattern": "",
+				"name": "default",
+				"target": [
+					"HomePage",
+					"MenuBar"
+				]
+			}]
+		}
+	}
+}

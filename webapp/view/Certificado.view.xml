@@ -1,0 +1,594 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.bancasegurosEmision.controller.Certificado" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page title="BANCASEGUROS - TecniSeguros" showHeader="true" showFooter="true" showNavButton="false">
+		<content>
+			<ObjectHeader intro="" title="Certificado" icon="sap-icon://form" number="" numberUnit="" numberState="None" showMarkers="false"
+				markFavorite="false" markFlagged="false" backgroundDesign="Translucent" condensed="false">
+				<attributes/>
+				<statuses/>
+			</ObjectHeader>
+			<IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<items>
+					<IconTabFilter icon="sap-icon://search" iconColor="Default" text="Buscar" count="" design="Horizontal" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Parámetros de búsqueda" level="H2"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Cliente" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input placeholder="Nombre(s)" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+													<Input value="" placeholder="Apellido(s)" type="Text" description="" showValueHelp="false" enabled="true" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Identificación" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox placeholder="Tipo de documento" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="DPI" enabled="true" key="DPI"/>
+															<core:Item text="Pasaporte" enabled="true" key="Pasaporte"/>
+															<core:Item text="Cédula" enabled="true" key="Cédula"/>
+														</items>
+													</ComboBox>
+													<Input placeholder="número del documento" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields/>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="SpaceBetween" renderType="Div"
+								visible="true" displayInline="false">
+								<items>
+									<MessageStrip text="No se encontraron resultados" type="Information" customIcon="" showIcon="true" showCloseButton="false" visible="true">
+										<link/>
+									</MessageStrip>
+									<Button text="Ejecutar búsqueda" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true" visible="true"
+										iconDensityAware="false" press="_onButtonPress"/>
+								</items>
+								<layoutData/>
+							</HBox>
+							<Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true">
+								<infoToolbar>
+									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+										<content>
+											<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+										</content>
+									</Toolbar>
+								</infoToolbar>
+								<headerToolbar/>
+								<columns>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Certificado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Estado" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Póliza" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Producto" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Plan" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Fecha de Emisión" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+									<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+										<header>
+											<Text text="ID Cliente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</header>
+										<footer/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active">
+										<cells>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+											<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://sys-add" iconColor="Default" text="Nuevo Certificado" count="" design="Horizontal" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<HBox alignItems="Stretch" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="SpaceBetween" renderType="Div"
+								visible="true" displayInline="false">
+								<items>
+									<MessageStrip text="Certificado: B-124361 Póliza: 1214111 QTZ guardado exitosamente" type="Success" customIcon="sap-icon://message-success"
+										showIcon="true" showCloseButton="false" visible="true">
+										<link/>
+									</MessageStrip>
+									<MessageStrip text="(*) Campos obligatorios" type="Error" customIcon="" showIcon="true" showCloseButton="false" visible="true">
+										<link/>
+									</MessageStrip>
+									<Button text="Guardar" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+										iconDensityAware="false"/>
+								</items>
+								<layoutData/>
+							</HBox>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Información del Certificado" level="H2"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Canal" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox placeholder="" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Oficina de Venta" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Promoción" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Ejecutivo de Venta" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Canal" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Producto / Póliza" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Plan" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Asegurado" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input value="Nombre completo del cliente" placeholder="" type="Text" description="" showValueHelp="false" enabled="false" visible="true"
+														width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input value="Código del cliente" type="Text" showValueHelp="false" enabled="false" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+													<Link text="Buscar" textAlign="Begin" width="auto" target="_blank" wrapping="false" enabled="true" visible="true" emphasized="true"
+														subtle="false" press="_onLinkPress"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Producto" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Fecha de Emisión" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<DatePicker value="" enabled="true" visible="true" width="auto" displayFormat="MMM dd, yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Inicio de Cobro" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<DatePicker enabled="true" visible="true" width="auto" displayFormat="MMM dd, yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Fecha de Operación" design="Bold" width="144.20140075683594px" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<DatePicker enabled="true" visible="true" width="auto" displayFormat="MMM dd, yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Observaciones" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<TextArea rows="2" cols="20" maxLength="0" wrapping="None" visible="true"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Plan de Pago" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Medio de Pago" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Número de Cuenta" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Usuario" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input value="Usuario actual" type="Text" showValueHelp="false" enabled="false" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Certificado" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="End" renderType="Div"
+								visible="true" displayInline="false">
+								<items>
+									<Button text="Guardar" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+										iconDensityAware="false"/>
+								</items>
+								<layoutData/>
+							</HBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://add-contact" iconColor="Default" text="Nuevo Cliente" count="" design="Horizontal" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<HBox alignItems="Stretch" direction="Row" fitContainer="true" width="auto" height="auto" justifyContent="SpaceBetween" renderType="Div"
+								visible="true" displayInline="false">
+								<items>
+									<MessageStrip text="Cliente: (nombres y apellidos del cliente) guardado exitosamente" type="Success" customIcon="sap-icon://message-success"
+										showIcon="true" showCloseButton="false" visible="true">
+										<link/>
+									</MessageStrip>
+									<MessageStrip text="(*) Campos obligatorios" type="Error" customIcon="" showIcon="true" showCloseButton="false" visible="true">
+										<link/>
+									</MessageStrip>
+									<Button text="Guardar" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+										iconDensityAware="false"/>
+								</items>
+								<layoutData/>
+							</HBox>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="Información del Cliente" level="H2"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Identificación" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox placeholder="Tipo de documento" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="DPI" enabled="true" key="DPI"/>
+															<core:Item text="Pasaporte" enabled="true" key="Pasaporte"/>
+															<core:Item text="Cédula" enabled="true" key="Cédula"/>
+														</items>
+													</ComboBox>
+													<Input placeholder="número del documento" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="NIT" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Identificación" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Cliente" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input placeholder="Nombre(s)" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+													<Input value="" placeholder="Primer Apellido" type="Text" description="" showValueHelp="false" enabled="true" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+													<Input value="" placeholder="Segundo Apellido" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto"
+														valueHelpOnly="false" maxLength="0"/>
+													<Input placeholder="Apellido de Casada" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Fecha Nacimiento" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<DatePicker enabled="true" visible="true" width="auto" displayFormat="MMM dd, yyyy"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Género" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Masculino" enabled="true" key="Masculino"/>
+															<core:Item text="Femenino" enabled="true" key="Femenino"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Estado Civil" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Soltero" enabled="true" key="Soltero"/>
+															<core:Item text="Casado" enabled="true" key="Casado"/>
+															<core:Item text="Divorciado" enabled="true" key="Divorciado"/>
+															<core:Item text="Viudo" enabled="true" key="Viudo"/>
+															<core:Item text="Unido" enabled="true" key="Unido"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Ocupación" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Información Personal" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Dirección" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<TextArea rows="2" cols="20" maxLength="0" wrapping="None" visible="true"/>
+													<Input placeholder="ZIP" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Municipio" design="Bold" width="100%" required="true" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+														<items>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item text="Item" enabled="true" key="Item"/>
+														</items>
+													</ComboBox>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Correo" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input type="Email" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Teléfono(s)" design="Bold" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+												</form:label>
+												<form:fields>
+													<Input value="" placeholder="Teléfono 1" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+													<Input placeholder="Teléfono 2" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false"
+														maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title>
+											<core:Title text="Ubicación / Teléfonos" level="Auto"/>
+										</form:title>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+							<HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="End" renderType="Div"
+								visible="true" displayInline="false">
+								<items>
+									<Button text="Guardar" type="Emphasized" icon="sap-icon://save" iconFirst="true" width="auto" enabled="true" visible="true"
+										iconDensityAware="false"/>
+								</items>
+								<layoutData/>
+							</HBox>
+						</content>
+					</IconTabFilter>
+				</items>
+				<content>
+					<Text text="Tab Bar Content goes here ..." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</content>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<Text text="INXU-BANCASEGUROS Copyright 2018" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		<headerContent/>
+	</Page>
+</mvc:View>

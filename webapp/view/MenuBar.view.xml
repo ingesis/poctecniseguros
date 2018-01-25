@@ -1,0 +1,38 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.bancasegurosEmision.controller.MenuBar" xmlns="sap.m"
+	xmlns:tnt="sap.tnt">
+	<Page title="BANCASEGUROS" showHeader="true" showFooter="false" showNavButton="false">
+		<content>
+			<tnt:NavigationList width="auto" expanded="true">
+				<tnt:items>
+					<tnt:NavigationListItem icon="sap-icon://home" expanded="true" hasExpander="true" text="Home" select="_onNavigationListItemSelect">
+						<tnt:items/>
+					</tnt:NavigationListItem>
+					<tnt:NavigationListItem icon="sap-icon://folder" expanded="false" hasExpander="true" text="Emisión">
+						<tnt:items>
+							<tnt:NavigationListItem expanded="true" hasExpander="true" text="Póliza"/>
+							<tnt:NavigationListItem expanded="true" hasExpander="true" text="Agente"/>
+							<tnt:NavigationListItem expanded="true" hasExpander="true" text="Certificado" select="_onNavigationListItemFirstLevelSelect"/>
+						</tnt:items>
+					</tnt:NavigationListItem>
+					<tnt:NavigationListItem icon="sap-icon://money-bills" expanded="true" hasExpander="true" text="Cobranzas">
+						<tnt:items/>
+					</tnt:NavigationListItem>
+					<tnt:NavigationListItem icon="sap-icon://action-settings" expanded="true" hasExpander="true" text="Admon">
+						<tnt:items/>
+					</tnt:NavigationListItem>
+				</tnt:items>
+			</tnt:NavigationList>
+		</content>
+		<footer>
+			<Bar design="Auto">
+				<contentLeft/>
+				<contentMiddle/>
+				<contentRight>
+					<Button text="New" type="Transparent" icon="sap-icon://add" iconFirst="false" width="auto" enabled="true" visible="true"
+						iconDensityAware="false"/>
+				</contentRight>
+			</Bar>
+		</footer>
+		<headerContent/>
+	</Page>
+</mvc:View>
